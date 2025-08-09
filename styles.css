@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  justify-content: center;
+}
+#container {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.screen {
+  background-color: rgb(54, 107, 61);
+  color: white;
+  padding: 20px 15px;
+  border-radius: 5px;
+}
+.btn-row {
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  background-color: rgb(202, 202, 202);
+  border: none;
+  height: 55px;
+  width: 55px;
+  margin: 1%;
+  border-radius: 5px;
+}
+.equal-btn {
+  background-color: rgb(250, 186, 10);
+  color: white;
+}
+.reset-btn,
+.delete-btn {
+  background-color: rgb(138, 137, 138);
+  color: white;
+}
