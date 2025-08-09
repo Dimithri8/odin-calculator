@@ -1,37 +1,26 @@
 const screen = document.querySelector(".screen");
+const buttons = document.querySelectorAll("button");
 
-function add(firstNum, secondNum) {
-  screen.textContent = `The result is ${firstNum + secondNum}`;
-}
-
-function subtract(firstNum, secondNum) {
-  screen.textContent = `The result is ${firstNum - secondNum}`;
-}
-
-function multiply(firstNum, secondNum) {
-  screen.textContent = `The result is ${firstNum * secondNum}`;
-}
-
-function divide(firstNum, secondNum) {
-  screen.textContent = `The result is ${firstNum / secondNum}`;
-}
-
-let firstNum = parseInt(prompt("Enter the first number"));
-let operator = prompt("Enter the operator (+, -, /, *)");
-let secondNum = parseInt(prompt("Enter the second number"));
-
-function operate(operator, firstNum, secondNum) {
-  if (operator == "+") {
-    return add(firstNum, secondNum);
-  } else if (operator == "-") {
-    return subtract(firstNum, secondNum);
-  } else if (operator == "*") {
-    return multiply(firstNum, secondNum);
-  } else if (operator == "/") {
-    return divide(firstNum, secondNum);
-  } else {
-    alert("Please enter a valid operator.");
-  }
-}
-
-operate(operator, firstNum, secondNum);
+let userInput = "";
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (button.value === "reset") {
+      userInput = "";
+      screen.textContent = "";
+    } else if (button.value === "delete") {
+      userInput = userInput.slice(0, -1);
+      screen.textContent = userInput;
+    } else if (button.value === "=") {
+      try {
+        userInput = math.evaluate(userInput).toString();
+        screen.textContent = userInput;
+      } catch (error) {
+        screen.textContent = "Error";
+        userInput = "";
+      }
+    } else {
+      userInput += button.value;
+      screen.textContent = userInput;
+    }
+  });
+});
